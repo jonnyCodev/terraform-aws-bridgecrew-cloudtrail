@@ -13,6 +13,10 @@ resource "aws_s3_bucket" "bridgecrew_cws_bucket" {
     enabled = true
   }
 
+  
+  
+  
+  
   lifecycle_rule {
     id      = "Delete old log files"
     enabled = true
