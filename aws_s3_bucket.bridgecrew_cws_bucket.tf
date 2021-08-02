@@ -17,6 +17,10 @@ resource "aws_s3_bucket" "bridgecrew_cws_bucket" {
     id      = "Delete old log files"
     enabled = true
 
+    
+    
+    
+    
     noncurrent_version_expiration {
       days = var.log_file_expiration
     }
