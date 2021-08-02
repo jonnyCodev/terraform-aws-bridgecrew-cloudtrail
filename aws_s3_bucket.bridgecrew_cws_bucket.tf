@@ -21,6 +21,8 @@ resource "aws_s3_bucket" "bridgecrew_cws_bucket" {
       days = var.log_file_expiration
     }
 
+    
+    
     expiration {
       days = var.log_file_expiration
     }
@@ -29,6 +31,8 @@ resource "aws_s3_bucket" "bridgecrew_cws_bucket" {
   dynamic "logging" {
     for_each = var.logs_bucket_id != null ? [var.logs_bucket_id] : []
 
+    
+    
     content {
       target_bucket = logging.value
       target_prefix = "/${local.bucket_name}"
