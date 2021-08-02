@@ -7,18 +7,30 @@ resource "aws_s3_bucket" "bridgecrew_cws_bucket" {
   bucket = local.bucket_name
   acl    = "private"
 
+  
+  
   versioning {
     enabled = true
   }
 
+  
+  
+  
+  
   lifecycle_rule {
     id      = "Delete old log files"
     enabled = true
 
+    
+    
+    
+    
     noncurrent_version_expiration {
       days = var.log_file_expiration
     }
 
+    
+    
     expiration {
       days = var.log_file_expiration
     }
@@ -27,6 +39,8 @@ resource "aws_s3_bucket" "bridgecrew_cws_bucket" {
   dynamic "logging" {
     for_each = var.logs_bucket_id != null ? [var.logs_bucket_id] : []
 
+    
+    
     content {
       target_bucket = logging.value
       target_prefix = "/${local.bucket_name}"
